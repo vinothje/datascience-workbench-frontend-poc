@@ -1,10 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import store from './store';
+import {Provider} from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const withProvider = (children) => (
+    <Provider store={store}>
+        {children}
+    </Provider>
+);
+
+ReactDOM.render(withProvider(<App />), document.getElementById('root'));
+
+window.version = process.env.VERSION;
+if (process.env.NODE_ENV !== 'production') {
+    window.store = store;
+}
+window.version = process.env.VERSION;
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
