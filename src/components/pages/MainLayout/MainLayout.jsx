@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from 'react-router';
 import {
   Collapse,
   Navbar,
@@ -13,8 +14,11 @@ import {
   DropdownItem,
   Button,
 } from "reactstrap";
+import './MainLayout.css';
 
-class Dashboard extends Component {
+class MainLayout extends Component {
+  static displayName = 'MainLayout';
+
   constructor(props) {
     super(props);
 
@@ -35,18 +39,20 @@ class Dashboard extends Component {
           <NavbarBrand href="/">Socure</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav navbar>
               <NavItem>
-                <NavLink href="#">Files</NavLink>
+                <Link className="nav-link" to="/files">Files</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Jobs</NavLink>
+                <Link className="nav-link" to="/jobs">Jobs</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="#">Tasks</NavLink>
+                <Link className="nav-link" to="/tasks">Tasks</Link>
               </NavItem>
+            </Nav>
+            <Nav className='ml-auto' navbar>
               <NavItem>
-                  <Button size="small" color="primary" className="ml-3 text-white d-none d-sm-block">Logout</Button>
+              <Button size="small" color="primary" className="ml-3 text-white d-none d-sm-block">Logout</Button>
               </NavItem>
             </Nav>
           </Collapse>
@@ -56,4 +62,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default MainLayout;
