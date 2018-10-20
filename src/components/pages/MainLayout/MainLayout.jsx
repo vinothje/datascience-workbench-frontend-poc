@@ -35,19 +35,19 @@ class MainLayout extends Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar light expand="md">
           <NavbarBrand href="/">Socure</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav navbar>
               <NavItem>
-                <Link className="nav-link" to="/files">Files</Link>
+                <Link className="nav-link" activeStyle={{fontWeight: 'bold'}} to="/files">Files</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to="/jobs">Jobs</Link>
+                <Link className="nav-link" activeStyle={{fontWeight: 'bold'}} to="/jobs">Jobs</Link>
               </NavItem>
               <NavItem>
-                <Link className="nav-link" to="/tasks">Tasks</Link>
+                <Link className="nav-link" activeStyle={{fontWeight: 'bold'}} to="/tasks">Tasks</Link>
               </NavItem>
             </Nav>
             <Nav className='ml-auto' navbar>
@@ -57,6 +57,9 @@ class MainLayout extends Component {
             </Nav>
           </Collapse>
         </Navbar>
+        <div className="maincontent">
+          {this.props.children}
+        </div>
       </div>
     );
   }

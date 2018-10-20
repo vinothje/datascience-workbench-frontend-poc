@@ -5,5 +5,6 @@ export const reduxSagaMiddleware = sagaMiddleware();
 
 export function initSagas() {
     reduxSagaMiddleware.run(function *sagas() {
+        yield fork(require('./sagas/files').default);
     });
 }

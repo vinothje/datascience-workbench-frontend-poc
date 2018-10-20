@@ -16,10 +16,11 @@ class Routes extends Component {
     render() {
         return (
             <Router history={history}>
-                <Route exact path="/" component={MainLayout} store={store} />
-                <Route name="files" path="/files" component={FilesPage} />
-                <Route name="tasks" path="/tasks" component={TasksPage} />
-                <Route name="jobs" path="/jobs" component={JobsPage} />
+                <Route exact path="/" component={MainLayout} store={store}>
+                    <Route name="files" path="files" component={FilesPage} />
+                    <Route name="tasks" path="tasks" component={TasksPage} />
+                    <Route name="jobs" path="jobs" component={JobsPage} />
+                </Route>
             </Router>
         );
         // return (
